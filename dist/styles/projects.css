@@ -1,0 +1,27 @@
+#project-container{
+    width: 25em;
+    margin: auto;
+
+
+    border: 1px solid red;
+}
+
+#project-top-bar{
+	display: flex;
+	flex-direction: row;
+	padding-left: 2em;
+}
+
+#new-project-button{
+	width: 7em;
+	height: 2em;
+	display: block;
+	margin-left: 5em;
+	background-color: #7FFF00;	
+	border-radius: 10px;
+}
+
+.project-text{
+	font-size: 24px;
+	font-family:  Arial, Helvetica, sans-serif;
+}
