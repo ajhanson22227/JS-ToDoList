@@ -2,8 +2,6 @@
     width: auto;
     margin: auto;
 
-
-    border: 1px solid black;
 }
 
 #project-top-bar{
@@ -33,7 +31,7 @@
 	font-family:  Arial, Helvetica, sans-serif;
 }
 
-.project-list{
+#project-list{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -43,9 +41,11 @@
 }
 
 .project{
-	width: fit-content;
 	min-width: 40%;
-	margin-top: 1em;
+	max-width: 40%;
+	border: 1px solid black;
+	margin-top: 5px;
+	word-wrap: break-word;
 }
 .project:hover{
 	background-color: #6699ff;
