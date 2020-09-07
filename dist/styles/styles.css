@@ -1,7 +1,5 @@
 #container{
-    border: 1px solid black;
-
-    width: 80vw;
+    width: 100%;
     height: auto;
     margin: auto;
     margin-top: 5em;
