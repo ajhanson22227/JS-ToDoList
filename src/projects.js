@@ -5,23 +5,18 @@ const Project = (title) => {
 
 	const sayTitle = () => console.log(`This is project ${title}`);
 	const getTitle = () => title;
+	const addNote = (note) => projectNoteList.push(note);
 
 	return{
 		sayTitle,
 		getTitle,
+		projectNoteList
 	}
 }
 
 projects.push(Project('Default 1'));
 projects.push(Project('Default 2'));
 
-
-
-function logProjects(){
-	projects.forEach(proj => {
-		console.log(proj.sayTitle());
-	})
-}
 
 function displayProjects(){
 	const project_list_container = document.getElementById('project-list');
@@ -37,6 +32,10 @@ function displayProjects(){
 		let spanText = document.createElement('span');
 		spanText.className = "project-title project-text";
 		spanText.textContent = proj.getTitle();
+
+		project.addEventListener('click', function(){
+			loadNotePage(proj);
+		})
 
 		project.appendChild(spanText);
 		project_list_container.appendChild(project);
@@ -54,6 +53,7 @@ function updateProjectCount(){
 
 function loadProjectPage(){
 	const main = document.getElementById('container');
+	while (main.firstChild) main.removeChild(main.firstChild);
 
 	const project_container = document.createElement('div');
 	project_container.id = "project-container";
@@ -112,5 +112,5 @@ function loadTopBar(){
 
 	return top_bar;
 }
-
-export default loadProjectPage;
+loadProjectPage();
+//export default loadProjectPage;
