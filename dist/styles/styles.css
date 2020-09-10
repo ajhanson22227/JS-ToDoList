@@ -4,3 +4,14 @@
     margin: auto;
     margin-top: 5em;
 }
+
+.parentDisable{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.8;
+    z-index: 998;
+    height: 100%;
+    width: 100%;
+}

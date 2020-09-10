@@ -33,7 +33,7 @@ function updateNoteCount(project){
 }
 
 function loadNotePage(project){
-	while(main_container.firstChild) main_container.removeChild(main_container.firstChild);
+	clearPage();
 
 	const note_container = document.createElement('div');
 	note_container.id = "notes-container";
@@ -90,12 +90,6 @@ function loadNoteTopBar(project){
 
 	// [ 4 ] Add Button Listener
 	new_note_button.addEventListener('click', function(){
-		// let newTitle = "";
-		// while (newTitle === "")	newTitle = prompt('What is the Title of this note?');
-		// let newDesc = "";
-		// // while (newDesc === "")	newDesc = prompt('What is the Title of this note?');
-		// project.projectNoteList.push(Note(newTitle, 'hello', 'low'));
-		// displayNotes(project);
 		openNoteCreator(project);
 	})
 
@@ -107,5 +101,61 @@ function loadNoteTopBar(project){
 }
 
 function openNoteCreator(project){
-	
+	clearPage();
+	const note_creator_container = document.createElement('div');
+	note_creator_container.id = "note-creator";
+
+	const titleLabel = document.createElement('div');
+	titleLabel.textContent = "Title";
+	const inputField = document.createElement('input');
+	inputField.type = "text";
+
+	const descLabel = document.createElement('div');
+	descLabel.textContent = "Description";
+	const descField = document.createElement('input');
+	descField.type = "text";
+
+	const priorLowLabel = document.createElement('div');
+	priorLowLabel.textContent = "Low";
+	const priorMedLabel = document.createElement('div');
+	priorMedLabel.textContent = "Medium";
+	const priorHighLabel = document.createElement('div');
+	priorHighLabel.textContent = "High";
+
+	const priorityLabel = document.createElement('div');
+	priorityLabel.textContent = "Priority"
+	const priorityFieldLow = document.createElement('input');
+	priorityFieldLow.type = "radio";
+	priorityFieldLow.name = "priority";
+	const priorityFieldMed = document.createElement('input');
+	priorityFieldMed.type = "radio";
+	priorityFieldMed.name = "priority";
+	const priorityFieldHigh = document.createElement('input');
+	priorityFieldHigh.type = "radio";
+	priorityFieldHigh.name = "priority";
+
+	const submitButton = document.createElement('button');
+	submitButton.id = "new-note-button";
+
+
+	note_creator_container.appendChild(titleLabel);
+	note_creator_container.appendChild(inputField);
+	note_creator_container.appendChild(descLabel);
+	note_creator_container.appendChild(descField);
+	note_creator_container.appendChild(priorityLabel);
+	note_creator_container.appendChild(priorLowLabel);
+	note_creator_container.appendChild(priorityFieldLow);
+	note_creator_container.appendChild(priorMedLabel);
+	note_creator_container.appendChild(priorityFieldMed);
+	note_creator_container.appendChild(priorHighLabel);
+	note_creator_container.appendChild(priorityFieldHigh);
+	note_creator_container.appendChild(submitButton);
+
+	main_container.appendChild(note_creator_container);
+}
+
+
+
+function clearPage(){
+	while (main_container.firstChild) main_container.removeChild(main_container.firstChild)
 }
