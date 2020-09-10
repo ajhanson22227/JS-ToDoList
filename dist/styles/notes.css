@@ -1,5 +1,4 @@
 #notes-container{
-	border: 1px solid black;
 	width: auto;
 	max-width: 70%;
 	margin: auto;
@@ -33,11 +32,14 @@
 	overflow: hidden;
 
 	box-shadow: 5px 5px #888888;
+	cursor: pointer;
 }
+
 
 .note span{
 	text-align: center;
 }
+
 
 #note-list{
 	display: flex;
@@ -50,6 +52,7 @@
 #note-creator{
 	position: fixed;
 	width: 40vw;
+	min-width: fit-content;
 	height: 50vh;
 
 	display: flex;
@@ -70,7 +73,19 @@
 }
 
 #new-note-button{
-	margin: auto;
 	height: 50px;
 	width: 125px;
 }
+priority-container{
+	display: flex;
+	flex-direction: column;
+}
+.priority-text{
+	text-align: center;
+}
+.radio-container{
+	display: flex;
+	margin-right: 5em;
+}
+
+
