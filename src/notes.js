@@ -2,10 +2,12 @@ const main_container = document.getElementById('container');
 
 const Note = (title, description, priority) => {
 	const getTitle = () => title;
+	const getDescription = () => description;
 	const getPriority = () => priority;
 
 	return{
 		getTitle,
+		getDescription,
 		getPriority
 	}
 }
@@ -19,7 +21,7 @@ function displayNotes(project){
 		newNote.className = "note";
 
 		let spanText = document.createElement('span');
-		spanText.className = "note-title project-text";
+		spanText.className = "note-title project-text no-select";
 		spanText.textContent = note.getTitle();
 
 		newNote.appendChild(spanText);
@@ -33,8 +35,14 @@ function displayNotes(project){
 		else{
 			newNote.style.backgroundColor = "#DC143C";
 		}
+
+		newNote.addEventListener('click', function(){
+			openNoteReader(note, project);
+		});
+
 		note_list_container.appendChild(newNote);
 	})
+
 
 	updateNoteCount(project);
 }
@@ -246,8 +254,56 @@ function addNewNote(project){
 	}
 	
 	let newPriority = document.querySelector('input[name="priority"]:checked').value;
-	console.log(`I got ${newPriority} as a value`);
 	
 	project.projectNoteList.push(Note(newTitle.value, newDesc.value, newPriority));
 	loadNotePage(project);
+}
+
+function readNote(note, project){
+	openNoteReader(note, project);
+}
+
+function openNoteReader(note, project){
+	clearPage();
+	const note_creator_container = document.createElement('div');
+	note_creator_container.id = "note-creator";
+
+	//
+	const back_arrow = document.createElement('i');
+	back_arrow.className = "fas fa-arrow-circle-left read-back-button"
+	back_arrow.addEventListener('click', function(){
+		loadNotePage(project);
+	})
+	note_creator_container.appendChild(back_arrow);
+	//
+
+	note_creator_container.appendChild(readTitle(note));
+	note_creator_container.appendChild(readDescription(note));
+	// note_creator_container.appendChild(getPriority());
+	// note_creator_container.appendChild(getNewNoteButton(project));
+
+	main_container.appendChild(note_creator_container);
+}
+
+
+function readTitle(note){
+	const titleContainer = document.createElement('div');
+
+	const titleLabel = document.createElement('div');
+	titleLabel.className = "note-title"
+	titleLabel.textContent = `${note.getTitle()}`;
+
+	titleContainer.appendChild(titleLabel);
+	return titleContainer;
+}
+
+function readDescription(note){
+	const titleContainer = document.createElement('div');
+
+	const titleLabel = document.createElement('div');
+	titleLabel.className = "note-desc"
+	titleLabel.textContent = `${note.getDescription()}`;
+
+	titleContainer.appendChild(titleLabel);
+	return titleContainer;
 }

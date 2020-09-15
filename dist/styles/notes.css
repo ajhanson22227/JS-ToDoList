@@ -51,9 +51,10 @@
 
 #note-creator{
 	position: fixed;
-	width: 40vw;
+	width: 20vw;
 	min-width: fit-content;
-	height: 50vh;
+	min-height: 30vh;
+	max-height: 50vh;
 
 	display: flex;
 	flex-direction: column;
@@ -64,6 +65,8 @@
     top: 50%;
     transform: translate(-50%, -50%);
 	background-color: beige;
+	box-shadow: 10px 10px 10px 10px #888888;
+	border-radius: 25px;
 }
 
 #note-creator input{
@@ -76,7 +79,8 @@
 	height: 50px;
 	width: 125px;
 }
-priority-container{
+
+.priority-container{
 	display: flex;
 	flex-direction: column;
 }
@@ -89,3 +93,18 @@ priority-container{
 }
 
 
+
+.note-title{
+	font-size: 4vh;
+}
+
+.note-desc{
+	font-size: 3vh;
+	margin-top: 2em;
+}
+
+.read-back-button{
+	position: absolute;
+	top: 1em;
+	left: 1em;
+}

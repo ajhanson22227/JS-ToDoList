@@ -31,7 +31,7 @@ function displayProjects(){
 
 		let spanText = document.createElement('span');
 		spanText.className = "project-title project-text";
-		spanText.textContent = proj.getTitle();
+		spanText.textContent = `${proj.getTitle()} (${proj.projectNoteList.length} Note(s))`;
 
 		project.addEventListener('click', function(){
 			loadNotePage(proj);

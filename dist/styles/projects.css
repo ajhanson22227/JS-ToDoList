@@ -46,6 +46,8 @@
 	border: 1px solid black;
 	margin-top: 5px;
 	word-wrap: break-word;
+
+	background-color: white;
 }
 .project:hover{
 	background-color: #6699ff;
